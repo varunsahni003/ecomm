@@ -1,0 +1,34 @@
+<h1 *ngIf="products"> Hi there {{products[0].name}}  </h1>
+
+<ion-grid>
+  <ion-row *ngIf="products">
+    <ion-col *ngFor="let product of products" size="6" size-sm="3">
+      <ion-card (click)="productDetails(product)" class="ion-no-margin">
+        <ion-badge class="discountBadge" *ngIf="product.offer">{{ product.discount }}%</ion-badge>
+        <ion-img [src]="product.image[0]" [attr.alt]="product.name"></ion-img>
+        <ion-card-header class="serifFont ion-no-padding">
+          <ion-card-title class="primaryColor headingSize">
+            <ion-row>
+              <ion-col size="12"> {{ product.name }} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-no-padding" *ngIf="product.offer">
+                <ion-label class="ion-no-padding">
+                  <span class="oldPrice"> Rs {{ product.cost_price }}</span>&nbsp;
+                  <span> Rs {{ helperService.calculateDiscount(product.cost_price, product.discount) }}</span>
+                </ion-label>
+              </ion-col>
+              <ion-col class="ion-no-padding" *ngIf="!product.offer">
+                <ion-label> Rs {{ product.cost_price }} </ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p> {{ product.description }} </p>
+          <p class="text-muted"> {{ product.sold }} + sold </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

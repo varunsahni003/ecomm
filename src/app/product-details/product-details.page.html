@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">Product Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="pR0" (click)="helperService.navigateTo('cart')">
+        <ion-icon name="cart" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+      <ion-button slot="end" fill="clear" class="white top-btn" (click)="helperService.navigateTo('login')">
+        Login
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #Slides pager="false" [options]="slideOptions" (ionSlideDidChange)="change()">
+    <ion-slide>
+      <app-product-detail (notify)="onReviewClick($event)" [productDetails]="productDetails" [slider]="slider"></app-product-detail>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

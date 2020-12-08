@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HelperService {
 
-  constructor(private router: Router, private nav: NavController) { }
+  constructor(
+    private router: Router,
+    private nav: NavController,
+    private dataService: DataService) { }
 
   navigateTo(link, forward?) {
     if (forward) {
@@ -15,5 +19,14 @@ export class HelperService {
     } else {
       this.router.navigateByUrl('/' + link);
     }
+  }
+
+  calculateDiscount(price: number, discount: number) {
+    price = price - (price * discount / 100);
+    return price.toFixed(2);
+  }
+
+  updateCurrentProduct(product) {
+    this.dataService.selectedProduct = product;
   }
 }
