@@ -24,3 +24,19 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.primaryColor { color: var(--ion-color-primary); }
+.secondaryColor { color: var(--ion-color-secondary); }
+.fontBold { font-weight: bold; }
+.fontItalic { font-style: italic; }
+.cursorChange { cursor: pointer; }
+.mT0 { margin-top: 0px; }
+.mT10 { margin-top: 10px !important; }
+.mT20 { margin-top: 20px !important; }
+.mT30 { margin-top: 30px !important; }
+.serifFont { font-family: serif; }
+.smallText { font-size: 13px; }
+
+.ion-invalid.ion-touched ion-label {
+    color: var(--ion-color-danger);
+}
