@@ -29,21 +29,21 @@ export class AppComponent {
       icon: 'walk',
       url: 'couple-games'
     },
-    {
-      title: 'FAQs',
-      icon: 'business',
-      url: ''
-    },
-    {
-      title: 'Rewards',
-      icon: 'business',
-      url: ''
-    },
-    {
-      title: 'Settings',
-      icon: 'business',
-      url: ''
-    }
+    // {
+    //   title: 'FAQs',
+    //   icon: 'business',
+    //   url: ''
+    // },
+    // {
+    //   title: 'Rewards',
+    //   icon: 'business',
+    //   url: ''
+    // },
+    // {
+    //   title: 'Settings',
+    //   icon: 'business',
+    //   url: ''
+    // }
   ];
 
   constructor(

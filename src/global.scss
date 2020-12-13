@@ -27,15 +27,21 @@
 
 .primaryColor { color: var(--ion-color-primary); }
 .secondaryColor { color: var(--ion-color-secondary); }
+.successColor { color: var(--ion-color-success); }
+.darkColor { color: var(--ion-color-dark); }
+.backgroundGrey { background-color: #f8f8f8; }
 .fontBold { font-weight: bold; }
 .fontItalic { font-style: italic; }
 .cursorChange { cursor: pointer; }
 .mT0 { margin-top: 0px; }
+.mB0 { margin-bottom: 0px; }
 .mT10 { margin-top: 10px !important; }
 .mT20 { margin-top: 20px !important; }
 .mT30 { margin-top: 30px !important; }
 .serifFont { font-family: serif; }
 .smallText { font-size: 13px; }
+.mediumText { font-size: 16px; }
+.largeText { font-size: 21px !important; }
 
 .ion-invalid.ion-touched ion-label {
     color: var(--ion-color-danger);

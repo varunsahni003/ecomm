@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-text-center">
+    <h1 id="header">
+      Choose best plan to host your site
+    </h1>
+    <ion-note id="desc">
+      Our website hosting plan includes easy setup and backups
+    </ion-note>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="4">
+        <ion-card mode="ios" button id="card1" class="ion-text-center">
+          <ion-icon name="flame"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Basic</ion-card-title>
+            <ion-card-subtitle><sup>$</sup>5 <sub>/mo</sub></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Plan Details</h2>
+            <p>
+              20 GB SSD
+            </p>
+            <p>
+              Unlimited Bandwidth
+            </p>
+            <p>
+              Upto 3 websites
+            </p>
+            <ion-button (click)="buy('basic')" fill="outline" color="light" mode="md">
+              Buy Now
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card mode="ios" button id="card2" class="ion-text-center">
+          <ion-icon name="star"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Premium</ion-card-title>
+            <ion-card-subtitle><sup>$</sup>20 <sub>/mo</sub></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Plan Details</h2>
+            <p>
+              50 GM SSD
+            </p>
+            <p>
+              Unlimited Bandwidth
+            </p>
+            <p>
+              Upto 5 websites
+            </p>
+            <ion-button (click)="buy('premium')" fill="outline" color="light" mode="md">
+              Buy Now
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card mode="ios" button id="card3" class="ion-text-center">
+          <ion-icon name="heart"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Ultimate</ion-card-title>
+            <ion-card-subtitle><sup>$</sup>50 <sub>/mo</sub></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Plan Details</h2>
+            <p>
+              1 TB SSD
+            </p>
+            <p>
+              Unlimited Bandwidth
+            </p>
+            <p>
+              Upto 10 websites
+            </p>
+            <ion-button (click)="buy('ultimate')" fill="outline" color="light" mode="md">
+              Buy Now
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

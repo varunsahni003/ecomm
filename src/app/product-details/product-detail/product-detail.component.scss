@@ -1,0 +1,53 @@
+.image-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 75%,white 100%);
+}
+.imageBadge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background-color: rgba(120, 120, 120, 0.7);
+    border: 1px solid #ccc;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 15px;
+    z-index: 1;
+}
+.sharingIcons {
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    z-index: 5;
+}
+
+.sharingIcon {
+    background-color: #fff;
+    border-radius: 25px;
+    border: 0.6px solid rgba(120, 120, 120, 0.7);
+    padding: 13px;
+    margin-right: 10px;
+}
+
+.priceLabel {
+    position: fixed;
+    bottom: -4px;
+    z-index: 5;
+    width: 100%;
+}
+.oldPrice {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    color: darkgray;
+}
+.starStyle {
+    font-size: 15px;
+}
+.addingBorderTop { border-top: 1px solid var(--ion-color-medium); }
+.pL5 { padding-left: 5px; }
+.specificationAlignment { margin: 0px; font-size: 18px; }
+.mR10 { margin-right: 10px; }

@@ -1,0 +1,146 @@
+<div *ngIf="productDetails">
+  <ion-slides #slides pager="true" [options]="slideOptions" autoplay="true" loop="true">
+    <ion-slide *ngFor="let produc of productDetails.image">
+      <img [src]="produc" [attr.alt]="productDetails.name" />
+      <div class="image-overlay"></div>
+    </ion-slide>
+  </ion-slides>
+  <!-- <ion-badge class="imageBadge">
+    <ion-icon name="images"></ion-icon>{{ productDetails.image.length}}
+  </ion-badge> -->
+
+            <!-- Social media sharing -->
+  <ion-row class="ion-float-right">
+    <div class="sharingIcons">
+      <ion-icon size="large" float-right name="logo-instagram" class="fab sharingIcon"
+        (click)="shareViaInstagram(productDetails.image[0])"></ion-icon>
+      <ion-icon size="large" float-right name="share" class="fab sharingIcon"
+        (click)="shareCommon(productDetails.image[0])"></ion-icon>
+    </div>
+  </ion-row>
+
+              <!-- Product cost -->
+  <ion-grid class="ion-no-margin ion-no-padding priceLabel">
+    <ion-row class="serifFont ion-no-margin ion-no-padding">
+      <ion-col class="ion-no-padding ion-no-margin" size="6">
+        <ion-button size="large" box-shadow="3px 3px 5px 6px #ccc;" color="light" expand="full" class="serifFont ion-no-margin"> ADD TO CART </ion-button>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-no-margin" size="6">
+        <ion-button size="large" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="full" class="serifFont ion-no-margin"> BUY NOW </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+          <!-- Product Details -->
+  <ion-grid style="margin-bottom: 80px;">
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <h1 class="primaryColor mB0">{{ productDetails.name }}</h1>
+        <ion-icon name="star" class="primaryColor starStyle"
+          *ngFor="let i of helperService.createArray(productDetails.rating)"></ion-icon>
+        <ion-icon name="star-outline" class="primaryColor starStyle"
+          *ngFor="let i of helperService.createArray(5-productDetails.rating)"></ion-icon>
+        <span class="text-muted"> {{ productDetails.rating_count }} ratings </span>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-no-padding ion-no-margin">
+      <ion-col size="12">
+        <ion-label>
+          <h2 class="largeText">
+            ₹ {{ helperService.calculateDiscount(productDetails.cost_price, productDetails.discount) }}
+            <span class="oldPrice mediumText">₹ {{ productDetails.cost_price }}</span>
+            <span class="successColor mediumText"> ({{ productDetails.discount }}% off) </span>
+          </h2>
+          <p class="fontBold mediumText" *ngIf="productDetails.deliveryCharge == 0"> <span class="successColor"> Free Delivery </span></p>
+          <p *ngIf="productDetails.deliveryCharge != 0"> Delivery charge ₹ {{ productDetails.deliveryCharge }} </p>
+        </ion-label>
+      </ion-col>
+      <!-- <ion-col size="3" size-sm="3" offset-sm="2">
+        
+      </ion-col> -->
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        {{ productDetails.description | shortDescription: descriptionLength }}
+        <span *ngIf="!description" (click)="moreDetails()" class="text-muted"><u>more</u></span>
+        <span *ngIf="description" (click)="lessDetails()" class="text-muted"><u>less details</u></span>
+      </ion-col>
+    </ion-row>
+
+            <!-- Available offers -->
+    <ion-row class="addingBorderTop ion-no-padding">
+      <h4 class="primaryColor serifFont pL5">Available offers</h4>
+      <ion-item *ngFor="let promoCode of productDetails.promoCodes" lines="none">
+        <ion-col size="4" size-sm="4">
+          <ion-text class="ion-no-padding ion-text-left">
+            <p>{{ promoCode.name }}</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="7" size-sm="5" offset-sm="1">
+          <ion-text> {{ promoCode.description }} </ion-text>
+        </ion-col>
+        <ion-col size="1">></ion-col>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="addingBorderTop mT20">
+      <h4 class="primaryColor serifFont pL5">Available Size</h4>
+      <ion-col size="12">
+        <ion-button *ngFor="let size of productDetails.availableSize" class="mR10" size="small" color="light">
+          {{ size }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+                  <!-- Specifications -->
+    <ion-row class="addingBorderTop mT20">
+      <h4 class="primaryColor serifFont pL5">Specifications</h4>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-sm="4">
+        <ion-text class="ion-text-left">
+          <p class="specificationAlignment">Name</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6" size-sm="6" offset-sm="1">
+        <ion-text> <p class="specificationAlignment">{{ productDetails.name }}</p> </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-sm="4">
+        <ion-text class="ion-text-left">
+          <p class="specificationAlignment">Brand</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6" size-sm="6" offset-sm="1">
+        <ion-text> <p class="specificationAlignment">{{ productDetails.brand }}</p> </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-sm="4">
+        <ion-text class="ion-text-left">
+          <p class="specificationAlignment">Color</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6" size-sm="6" offset-sm="1">
+        <ion-text> <p class="specificationAlignment">{{ productDetails.color }}</p> </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-sm="4">
+        <ion-text class="ion-text-left">
+          <p class="specificationAlignment">Size</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6" size-sm="6" offset-sm="1">
+        <ion-text> <p class="specificationAlignment">{{ productDetails.size }}</p> </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="mT20">
+      <ion-text>
+        <h4 class="primaryColor serifFont">Return gurantee: </h4>
+        <p>{{ productDetails.return }}</p>
+      </ion-text>
+    </ion-row>
+  </ion-grid>
+</div>

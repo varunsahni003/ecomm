@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="loggedInUserDetails && loggedInUserDetails.length>0"
+    class="backgroundGrey ion-no-padding ion-no-margin">
+              <!-- Address -->
+    <ion-card class="ion-no-padding ion-no-margin">
+      <ion-card-content>
+        <ion-row class="darkColor">
+          <ion-col size="3" size-sm="3">
+            <h2>Deliver to</h2>
+          </ion-col>
+          <ion-col class="ion-no-margin" size="5" size-sm="5">
+            <h2>{{ loggedInUserDetails[0].defaultAddress }}</h2>
+          </ion-col>
+          <ion-col size="4" size-sm="4">
+            <ion-button color="light">Change</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+            <!-- Product -->
+    <ion-card *ngFor="let product of loggedInUserDetails[0].products" class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="6" size-sm="6">
+          <ion-card-header>
+            <ion-card-title class="primaryColor"> {{ product.name }} </ion-card-title>
+            <ion-card-subtitle> Size: {{ product.size }} </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <h2 class="largeText">
+                ₹ {{ helperService.calculateDiscount(product.price, product.discount) }}
+                <span class="oldPrice mediumText">₹ {{ product.price }}</span>
+                <span class="successColor mediumText"> ({{ product.discount }}% off) </span>
+              </h2>
+              <p class="fontBold mediumText" *ngIf="product.deliveryCharge == 0"> <span class="successColor"> Free
+                  Delivery </span></p>
+              <p *ngIf="product.deliveryCharge != 0"> Delivery charge ₹ {{ product.deliveryCharge }} </p>
+            </ion-label>
+          </ion-card-content>
+        </ion-col>
+        <ion-col size="6" size-sm="6">
+          <ion-row class="ion-float-right mT10 mR10">
+            <ion-thumbnail>
+              <img [src]="product.image" [attr.alt]="product.name" />
+            </ion-thumbnail>
+          </ion-row>
+          <ion-row class="ion-align-items-center ion-float-right mR10">
+            <ion-col size="3" class="ion-align-self-center">
+              <ion-button color="medium" fill="clear">
+                <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="2"></ion-col>
+            <ion-col size="3" class="ion-text-center">
+              <p style="margin-left: 3px">{{ cartItemCount }}</p>
+            </ion-col>
+
+            <ion-col size="2" class="ion-align-self-center">
+              <ion-button color="medium" fill="clear">
+                <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+            <!-- Price Details -->
+    <ion-card class="darkColor serifFont ion-no-margin mT10" style="margin-bottom: 40px;">
+      <ion-card-header>
+        <ion-card-title class="primaryColor serifFont"> Price Summary </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="6" size-sm="4">
+            <ion-text class="ion-text-left">
+              <p class="specificationAlignment">Price</p>
+            </ion-text>
+          </ion-col>
+          <ion-col size="6" size-sm="6" offset-sm="1">
+            <ion-text class="ion-float-right"> <p class="specificationAlignment">₹ {{ totalCart.totalPrice }}</p> </ion-text>
+            <!-- <ion-text class="ion-float-right"> <p class="specificationAlignment">₹ 100</p> </ion-text> -->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" size-sm="4">
+            <ion-text class="ion-text-left">
+              <p class="specificationAlignment">Discount</p>
+            </ion-text>
+          </ion-col>
+          <ion-col size="6" size-sm="6" offset-sm="1">
+            <ion-text class="ion-float-right"> <p class="specificationAlignment">-₹ {{ totalCart.totalDiscount }}</p> </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6" size-sm="4">
+            <ion-text class="ion-text-left">
+              <p class="specificationAlignment">Delivery Charge</p>
+            </ion-text>
+          </ion-col>
+          <ion-col size="6" size-sm="6" offset-sm="1">
+            <ion-text *ngIf="totalCart.deliveryCharge == 0" class="ion-float-right"> <p class="specificationAlignment successColor">Free</p></ion-text>
+            <ion-text *ngIf="totalCart.deliveryCharge != 0" class="ion-float-right"> <p class="specificationAlignment"> -₹ {{ loggedInUserDetails[0].deliveryCharge }} </p> </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row class="addingBorder">
+          <ion-col size="6" size-sm="4">
+            <ion-text class="ion-text-left">
+              <p class="specificationAlignment">Final Amount</p>
+            </ion-text>
+          </ion-col>
+          <ion-col size="6" size-sm="6" offset-sm="1">
+            <ion-text class="ion-float-right"> <p class="specificationAlignment">₹ {{ totalCart.finalAmount }}</p> </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" size-sm="12">
+            <ion-text color="medium" class="ion-text-left">
+              <p>Your Savings ₹ {{ totalCart.totalDiscount }}</p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+  <ion-grid *ngIf="loggedInUserDetails && loggedInUserDetails.length>0" class="ion-no-margin ion-no-padding priceLabel">
+    <ion-row class="serifFont backgroundGrey">
+      <ion-col size="6">
+        <ion-text expand="full" class="serifFont ion-text-left">
+          <h2 class="finalPrice">₹ {{ totalCart.finalAmount }} </h2>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button size="medium" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="block" class="serifFont mT10"> Order </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
