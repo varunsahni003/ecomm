@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   loginApiUrl: '',
-  apiUrl: 'assets/data'
+  apiUrl: 'assets/data',
+  nodeApi: 'http://localhost:3000'
 };
 
 /*

@@ -4,6 +4,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const quizRoutes = require("./routes/quiz");
+const productRoutes = require("./routes/product-routes");
+const userRoutes = require("./routes/user-routes");
+const paymentRoutes = require("./routes/payment-routes");
+const cors = require("cors");
 
 const app = express();
 
@@ -21,43 +25,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-/* Creating payment */
-var instance = new Razorpay({
-  key_id: 'rzp_test_2gEgPJl4OjDmwz',
-  key_secret: 'QxSStKkhylgBBcsctg3DN4f9'
-});
-
-app.get("/createOrderBasic", (req, res) => {
-  var options = {
-         amount: 500,  // amount in the smallest currency unit
-         currency: "USD",
-     };
-     instance.orders.create(options, function (err, order) {
-         res.send(order);
-     });
- });
- 
- app.get("/createOrderPremium", (req, res) => {
-  var options = {
-         amount: 2000,  // amount in the smallest currency unit
-         currency: "USD",
-     };
-     instance.orders.create(options, function (err, order) {
-         res.send(order);
-     });
- });
- 
- app.get("/createOrderUltimate", (req, res) => {
-  var options = {
-         amount: 5000,  // amount in the smallest currency unit
-         currency: "USD",
-     };
-     instance.orders.create(options, function (err, order) {
-         res.send(order);
-     });
- });
-
-
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -70,7 +37,9 @@ app.use((req, res, next) => {
   );
   next();
 });
-
 app.use("/api/quiz", quizRoutes);
+app.use("/api/product", productRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/payment", paymentRoutes);
 
 module.exports = app;

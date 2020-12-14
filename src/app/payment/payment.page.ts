@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ToastController } from '@ionic/angular';
+import { environment } from '../../environments/environment';
 declare var Razorpay: any;
 
 @Component({
@@ -9,6 +10,8 @@ declare var Razorpay: any;
   styleUrls: ['./payment.page.scss'],
 })
 export class PaymentPage implements OnInit {
+
+  nodeApiUrl: string = environment.nodeApi;
 
   constructor(public http: HttpClient, public toastCtrl: ToastController) { }
 
@@ -41,9 +44,7 @@ export class PaymentPage implements OnInit {
     param = "createOrderUltimate";
   }
 
- let url = "http://localhost:2000/";
-
- this.http.get(url + param).subscribe(res => {
+ this.http.get(`${this.nodeApiUrl}/api/payment/${param}/`).subscribe(res => {
       console.log(res);
       var options = {
       "key": 'rzp_test_2gEgPJl4OjDmwz',

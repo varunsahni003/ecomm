@@ -7,30 +7,16 @@ export interface Review {
 }
 export interface Product {
     name: string,
-    image: Array<string>,
+    images: Array<string>,
     size: string,
     color: string,
-    cost_price: number,
+    cost: number,
     discount: number,
-    offer: boolean,
     stock: number,
     description: string,
-    currency?: string,
-    sold: number,
-    shipping: number,
     rating: number,
     rating_count: number,
-    store_rate: number,
-    store_rating: number,
-    store_rating_count: number,
-    sold_by: string,
     reviews: Array<Review>,
-    store_reviews: Array<Review>,
-    sizing: {
-      small: number,
-      okay: number,
-      large: number
-    },
     return: string,
     promoCodes: Array<Promocodes>,
     specifications: {

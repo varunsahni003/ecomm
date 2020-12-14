@@ -1,6 +1,6 @@
 <div *ngIf="productDetails">
   <ion-slides #slides pager="true" [options]="slideOptions" autoplay="true" loop="true">
-    <ion-slide *ngFor="let produc of productDetails.image">
+    <ion-slide *ngFor="let produc of productDetails.images">
       <img [src]="produc" [attr.alt]="productDetails.name" />
       <div class="image-overlay"></div>
     </ion-slide>
@@ -13,9 +13,9 @@
   <ion-row class="ion-float-right">
     <div class="sharingIcons">
       <ion-icon size="large" float-right name="logo-instagram" class="fab sharingIcon"
-        (click)="shareViaInstagram(productDetails.image[0])"></ion-icon>
+        (click)="shareViaInstagram(productDetails.images[0])"></ion-icon>
       <ion-icon size="large" float-right name="share" class="fab sharingIcon"
-        (click)="shareCommon(productDetails.image[0])"></ion-icon>
+        (click)="shareCommon(productDetails.images[0])"></ion-icon>
     </div>
   </ion-row>
 
@@ -26,7 +26,7 @@
         <ion-button size="large" box-shadow="3px 3px 5px 6px #ccc;" color="light" expand="full" class="serifFont ion-no-margin"> ADD TO CART </ion-button>
       </ion-col>
       <ion-col class="ion-no-padding ion-no-margin" size="6">
-        <ion-button size="large" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="full" class="serifFont ion-no-margin"> BUY NOW </ion-button>
+        <ion-button size="large" (click)="buyNow()" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="full" class="serifFont ion-no-margin"> BUY NOW </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -49,8 +49,8 @@
       <ion-col size="12">
         <ion-label>
           <h2 class="largeText">
-            ₹ {{ helperService.calculateDiscount(productDetails.cost_price, productDetails.discount) }}
-            <span class="oldPrice mediumText">₹ {{ productDetails.cost_price }}</span>
+            ₹ {{ helperService.calculateDiscount(productDetails.cost, productDetails.discount) }}
+            <span class="oldPrice mediumText">₹ {{ productDetails.cost }}</span>
             <span class="successColor mediumText"> ({{ productDetails.discount }}% off) </span>
           </h2>
           <p class="fontBold mediumText" *ngIf="productDetails.deliveryCharge == 0"> <span class="successColor"> Free Delivery </span></p>
