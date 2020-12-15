@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { Storage } from  '@ionic/storage';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,14 @@ export class AuthService {
 
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
+  nodeApiUrl: string = environment.nodeApi;
   // headersFromService: any = {};
   
-  constructor(private _http: HttpClient, private router: Router, private http: HttpClient) {
+  constructor(
+    private _http: HttpClient,
+    private router: Router,
+    private http: HttpClient,
+    private  storage:  Storage) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -25,14 +32,16 @@ export class AuthService {
 
   login(userId: string, password: string) {
     const options = { observe: 'response' as 'body' };
-    return this.http.post<any>(`${environment.loginApiUrl}`, {userId, password}, options)
+    return this.http.post<any>(`${this.nodeApiUrl}/api/auth/login`, {userId, password}, options)
       .pipe(map(response => {
         response.headers.lazyInit();
         console.log('res: ', response);
         // this.headersFromService = Array.from(response.headers.headers.entries());
         // sessionStorage.headersFromService = JSON.stringify(this.headersFromService);
-        sessionStorage.setItem('currentUser', JSON.stringify(response.body.user));
-        this.currentUserSubject.next(response.body.user);
+        // sessionStorage.setItem('currentUser', JSON.stringify(response.body.user));
+        this.storage.set("ACCESS_TOKEN", response.user.access_token);
+        this.storage.set("EXPIRES_IN", response.user.expires_in);
+        this.currentUserSubject.next(response.user);
         return response.body.user;
       }));
   }
@@ -52,10 +61,36 @@ export class AuthService {
     return links;
   }
 
-  logout() {
-    sessionStorage.removeItem('currentUser');
-    // sessionStorage.removeItem('headersFromService');
+  // logout() {
+  //   sessionStorage.removeItem('currentUser');
+  //   // sessionStorage.removeItem('headersFromService');
+  //   this.currentUserSubject.next(null);
+  //   this.router.navigate(['login']);
+  // }
+
+  async logout() {
+    await this.storage.remove("ACCESS_TOKEN");
+    await this.storage.remove("EXPIRES_IN");
     this.currentUserSubject.next(null);
     this.router.navigate(['login']);
+  }
+
+  register(user: User): Observable<any> {
+    return this.http.post<any>(`${this.nodeApiUrl}/api/auth/register`, user).pipe(
+      tap(async (res:  any ) => {
+
+        if (res.user) {
+          await this.storage.set("ACCESS_TOKEN", res.user.access_token);
+          await this.storage.set("EXPIRES_IN", res.user.expires_in);
+          this.currentUserSubject.next(res.user);
+          return res.user;
+        }
+      })
+
+    );
+  }
+
+  isLoggedIn() {
+    return this.currentUserSubject.asObservable();
   }
 }
