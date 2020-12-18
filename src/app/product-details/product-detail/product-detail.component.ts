@@ -5,6 +5,8 @@ import { HttpCallsService } from '../../common/services/http-calls.service';
 import { HelperService } from '../../common/utilities/helper.service';
 import { environment } from '../../../environments/environment';
 declare var Razorpay: any;
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { CartService } from 'src/app/common/services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -29,7 +31,9 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private helperService: HelperService,
     private http: HttpCallsService,
-    public toastCtrl: ToastController) { }
+    public toastCtrl: ToastController,
+    private photoViewer: PhotoViewer,
+    private cartService: CartService) { }
 
   ngOnInit() {
     console.log('product details: ', this.productDetails);
@@ -74,7 +78,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   moreDetails() {
-    this.descriptionLength = 99999999999999;
+    this.descriptionLength = 99999999999;
     this.description = !this.description;
   }
 
@@ -142,5 +146,13 @@ export class ProductDetailComponent implements OnInit {
   initPay(options) {
     var rzp1 = new Razorpay(options);
     rzp1.open();
+  }
+
+  viewImage(image) {
+    this.photoViewer.show(image);
+  }
+
+  addToCart(product) {
+    this.cartService.addProduct(product);
   }
 }

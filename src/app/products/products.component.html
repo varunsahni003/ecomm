@@ -4,29 +4,29 @@
   <ion-row *ngIf="products">
     <ion-col *ngFor="let product of products" size="6" size-sm="3">
       <ion-card (click)="productDetails(product)" class="ion-no-margin">
-        <ion-badge class="discountBadge" *ngIf="product.offer">{{ product.discount }}%</ion-badge>
-        <ion-img [src]="product.image[0]" [attr.alt]="product.name"></ion-img>
+        <ion-badge class="discountBadge" *ngIf="product.discount">{{ product.discount }}%</ion-badge>
+        <ion-img [src]="product.images[0]" [attr.alt]="product.name"></ion-img>
         <ion-card-header class="serifFont ion-no-padding">
           <ion-card-title class="primaryColor headingSize">
             <ion-row>
               <ion-col size="12"> {{ product.name }} </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col class="ion-no-padding" *ngIf="product.offer">
+              <ion-col class="ion-no-padding" *ngIf="product.discount">
                 <ion-label class="ion-no-padding">
-                  <span class="oldPrice"> ₹ {{ product.cost_price }}</span>&nbsp;
-                  <span> ₹ {{ helperService.calculateDiscount(product.cost_price, product.discount) }}</span>
+                  <span class="oldPrice"> ₹ {{ product.cost }}</span>&nbsp;
+                  <span> ₹ {{ helperService.calculateDiscount(product.cost, product.discount) }}</span>
                 </ion-label>
               </ion-col>
-              <ion-col class="ion-no-padding" *ngIf="!product.offer">
-                <ion-label> ₹ {{ product.cost_price }} </ion-label>
+              <ion-col class="ion-no-padding" *ngIf="!product.discount">
+                <ion-label> ₹ {{ product.cost }} </ion-label>
               </ion-col>
             </ion-row>
           </ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <!-- <p> {{ product.description }} </p> -->
-          <p class="text-muted"> {{ product.sold }} + sold </p>
+          <!-- <p class="text-muted"> {{ product.sold }} + sold </p> -->
         </ion-card-content>
       </ion-card>
     </ion-col>

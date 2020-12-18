@@ -1,6 +1,6 @@
 <div *ngIf="productDetails">
   <ion-slides #slides pager="true" [options]="slideOptions" autoplay="true" loop="true">
-    <ion-slide *ngFor="let produc of productDetails.images">
+    <ion-slide (click)="viewImage(produc)" *ngFor="let produc of productDetails.images">
       <img [src]="produc" [attr.alt]="productDetails.name" />
       <div class="image-overlay"></div>
     </ion-slide>
@@ -23,7 +23,7 @@
   <ion-grid class="ion-no-margin ion-no-padding priceLabel">
     <ion-row class="serifFont ion-no-margin ion-no-padding">
       <ion-col class="ion-no-padding ion-no-margin" size="6">
-        <ion-button size="large" box-shadow="3px 3px 5px 6px #ccc;" color="light" expand="full" class="serifFont ion-no-margin"> ADD TO CART </ion-button>
+        <ion-button size="large" box-shadow="3px 3px 5px 6px #ccc;" (click)="addToCart(productDetails)" color="light" expand="full" class="serifFont ion-no-margin"> ADD TO CART </ion-button>
       </ion-col>
       <ion-col class="ion-no-padding ion-no-margin" size="6">
         <ion-button size="large" (click)="buyNow()" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="full" class="serifFont ion-no-margin"> BUY NOW </ion-button>
@@ -86,7 +86,13 @@
     <ion-row class="addingBorderTop mT20">
       <h4 class="primaryColor serifFont pL5">Available Size</h4>
       <ion-col size="12">
-        <ion-button *ngFor="let size of productDetails.availableSize" class="mR10" size="small" color="light">
+        <ion-button
+          (click)="productDetails.size = size;"
+          [class.selectedSize]="productDetails.size == size"
+          *ngFor="let size of productDetails.availableSize"
+          class="mR10"
+          size="small"
+          [color]="productDetails.size == size ? 'primary' : 'light'">
           {{ size }}
         </ion-button>
       </ion-col>

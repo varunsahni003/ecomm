@@ -37,8 +37,8 @@
           <ion-card-content>
             <ion-label>
               <h2 class="largeText">
-                ₹ {{ helperService.calculateDiscount(product.price, product.discount) }}
-                <span class="oldPrice mediumText">₹ {{ product.price }}</span>
+                ₹ {{ helperService.calculateDiscount(product.cost, product.discount) }}
+                <span class="oldPrice mediumText">₹ {{ product.cost }}</span>
                 <span class="successColor mediumText"> ({{ product.discount }}% off) </span>
               </h2>
               <p class="fontBold mediumText" *ngIf="product.deliveryCharge == 0"> <span class="successColor"> Free
@@ -55,18 +55,18 @@
           </ion-row>
           <ion-row class="ion-align-items-center ion-float-right mR10">
             <ion-col size="3" class="ion-align-self-center">
-              <ion-button color="medium" fill="clear">
+              <ion-button (click)="descreseItem(product)" color="medium" fill="clear">
                 <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
               </ion-button>
             </ion-col>
 
             <ion-col size="2"></ion-col>
             <ion-col size="3" class="ion-text-center">
-              <p style="margin-left: 3px">{{ cartItemCount }}</p>
+              <p style="margin-left: 3px">{{ product.quantity }}</p>
             </ion-col>
 
             <ion-col size="2" class="ion-align-self-center">
-              <ion-button color="medium" fill="clear">
+              <ion-button (click)="addItem(product)" color="medium" fill="clear">
                 <ion-icon name="add-circle" slot="icon-only"></ion-icon>
               </ion-button>
             </ion-col>
@@ -110,7 +110,7 @@
           </ion-col>
           <ion-col size="6" size-sm="6" offset-sm="1">
             <ion-text *ngIf="totalCart.deliveryCharge == 0" class="ion-float-right"> <p class="specificationAlignment successColor">Free</p></ion-text>
-            <ion-text *ngIf="totalCart.deliveryCharge != 0" class="ion-float-right"> <p class="specificationAlignment"> -₹ {{ loggedInUserDetails[0].deliveryCharge }} </p> </ion-text>
+            <ion-text *ngIf="totalCart.deliveryCharge != 0" class="ion-float-right"> <p class="specificationAlignment"> ₹ {{ totalCart.deliveryCharge }} </p> </ion-text>
           </ion-col>
         </ion-row>
         <ion-row class="addingBorder">
@@ -142,7 +142,7 @@
         </ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-button size="medium" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="block" class="serifFont mT10"> Order </ion-button>
+        <ion-button size="medium" (click)="order()" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="block" class="serifFont mT10"> Order </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
