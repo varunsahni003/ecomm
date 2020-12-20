@@ -18,7 +18,6 @@ export class AuthService {
   // headersFromService: any = {};
   
   constructor(
-    private _http: HttpClient,
     private router: Router,
     private http: HttpClient,
     private  storage:  Storage) {

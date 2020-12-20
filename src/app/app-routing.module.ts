@@ -26,6 +26,30 @@ const routes: Routes = [
   {
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
+  },
+  {
+    path: 'order-history',
+    loadChildren: () => import('./order-history/order-history.module').then( m => m.OrderHistoryPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+  },
+  {
+    path: 'terms-and-policies',
+    loadChildren: () => import('./terms-and-policies/terms-and-policies.module').then( m => m.TermsAndPoliciesPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 @NgModule({

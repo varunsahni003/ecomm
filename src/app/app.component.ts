@@ -14,21 +14,47 @@ export class AppComponent {
 
   public eComm = [
     {
-      title: 'Account',
+      title: 'Home',
       icon: 'business',
-      subPage: false,
-      subPages: [
-        { title: 'Romantic Ideas', url: 'romantic/romantic-ideas', icon: 'walk' },
-        { title: 'Romantic Movies', url: 'romantic/romantic-movies', icon: 'business' },
-        { title: 'Romantic Places', url: 'romantic/place', icon: 'walk' },
-        { title: 'Romantic Gifts', url: 'gifts', icon: 'walk' }
-      ]
+      url: 'home'
+    },
+    {
+      title: 'My Account',
+      icon: 'business',
+      url: 'account'
+      // subPage: false,
+      // subPages: [
+      //   { title: 'Profile', url: 'home', icon: 'walk' },
+      //   { title: 'Saved address', url: 'address', icon: 'business' },
+      //   { title: 'Order History', url: 'history', icon: 'walk' },
+      //   { title: 'Settings', url: 'setting', icon: 'walk' }
+      // ]
     },
     {
       title: 'Order History',
       icon: 'walk',
       url: 'couple-games'
     },
+    {
+      title: 'My Wishlist',
+      icon: 'walk',
+      url: 'wishlist'
+    },
+    {
+      title: 'My Cart',
+      icon: 'walk',
+      url: 'cart'
+    },
+    {
+      title: 'Contact',
+      icon: 'walk',
+      url: 'contact'
+    },
+    {
+      title: 'Terms and Policies',
+      icon: 'walk',
+      url: 'terms'
+    }
     // {
     //   title: 'FAQs',
     //   icon: 'business',

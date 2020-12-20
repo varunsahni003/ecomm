@@ -1,0 +1,44 @@
+<ion-header *ngIf="loggedInUserDetails && loggedInUserDetails.length>0">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="start" class="ion-text-left ion-no-padding">My Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="loggedInUserDetails && loggedInUserDetails.length>0">
+  <ion-grid class="primaryBackgroundColor">
+    <ion-row color="light">
+      <ion-col class="ion-text-center">
+          <ion-icon name="person" class="personAvatar"></ion-icon>
+          <!-- <ion-avatar>
+            <img draggable="false" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar> -->
+        <h4 class="mT0 lightColor"> {{ loggedInUserDetails[0].name }} </h4>
+        <p class="lightColor mB0"> {{ loggedInUserDetails[0].mobile }} </p>
+        <p class="mT5 lightColor"> {{ loggedInUserDetails[0].email }}
+          <span class="ion-float-right"><ion-icon class="lightColor" name="pencil"></ion-icon></span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="backgroundGrey ion-no-padding ion-no-margin">
+              <!-- Address -->
+    <ion-card class="ion-no-padding ion-no-margin">
+      <ion-card-content>
+        <ion-row class="darkColor">
+          <ion-col size="3" size-sm="3">
+            <h2>Deliver to</h2>
+          </ion-col>
+          <ion-col class="ion-no-margin" size="5" size-sm="5">
+            <h2>{{ loggedInUserDetails[0].defaultAddress }}</h2>
+          </ion-col>
+          <ion-col size="4" size-sm="4">
+            <ion-button color="light">Change</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    </ion-grid>
+</ion-content>
