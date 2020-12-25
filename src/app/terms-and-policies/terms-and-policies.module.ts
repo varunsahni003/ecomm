@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TermsAndPoliciesPageRoutingModule } from './terms-and-policies-routing.module';
 
 import { TermsAndPoliciesPage } from './terms-and-policies.page';
+import { PrivacyPolicyComponent } from '../privacy-policy/privacy-policy.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TermsAndPoliciesPage } from './terms-and-policies.page';
     IonicModule,
     TermsAndPoliciesPageRoutingModule
   ],
-  declarations: [TermsAndPoliciesPage]
+  declarations: [TermsAndPoliciesPage, PrivacyPolicyComponent]
 })
 export class TermsAndPoliciesPageModule {}

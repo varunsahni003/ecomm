@@ -18,27 +18,54 @@
         <h4 class="mT0 lightColor"> {{ loggedInUserDetails[0].name }} </h4>
         <p class="lightColor mB0"> {{ loggedInUserDetails[0].mobile }} </p>
         <p class="mT5 lightColor"> {{ loggedInUserDetails[0].email }}
-          <span class="ion-float-right"><ion-icon class="lightColor" name="pencil"></ion-icon></span>
+          <span class="ion-float-right"><ion-icon class="lightColor editIcon" name="pencil"></ion-icon></span>
         </p>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-grid class="backgroundGrey ion-no-padding ion-no-margin">
+  <ion-grid class="backgroundGrey">
               <!-- Address -->
-    <ion-card class="ion-no-padding ion-no-margin">
-      <ion-card-content>
-        <ion-row class="darkColor">
-          <ion-col size="3" size-sm="3">
-            <h2>Deliver to</h2>
-          </ion-col>
-          <ion-col class="ion-no-margin" size="5" size-sm="5">
-            <h2>{{ loggedInUserDetails[0].defaultAddress }}</h2>
-          </ion-col>
-          <ion-col size="4" size-sm="4">
-            <ion-button color="light">Change</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-    </ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-no-padding ion-no-margin darkColor">
+          <ion-card-header>
+            <ion-card-title>Saved Addresses</ion-card-title>
+            <ion-card-subtitle>View all your saved addresses</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-button routerLink="../address">View Addresses</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-no-padding ion-no-margin darkColor">
+          <ion-card-header>
+            <ion-card-title>Orders history</ion-card-title>
+            <ion-card-subtitle>View all your orders</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-button routerLink="../order-history">View Orders</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-no-padding ion-no-margin darkColor">
+          <ion-card-header>
+            <ion-card-title>My Wishlist</ion-card-title>
+            <ion-card-subtitle>View your wishlist</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-button routerLink="../wishlist">View Wishlist</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

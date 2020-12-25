@@ -4,6 +4,7 @@ import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import { AuthService } from './common/services/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,7 @@ export class AppComponent {
     {
       title: 'Order History',
       icon: 'walk',
-      url: 'couple-games'
+      url: 'order-history'
     },
     {
       title: 'My Wishlist',
@@ -51,9 +52,9 @@ export class AppComponent {
       url: 'contact'
     },
     {
-      title: 'Terms and Policies',
+      title: 'Terms and Conditions',
       icon: 'walk',
-      url: 'terms'
+      url: 'terms-and-policies'
     }
     // {
     //   title: 'FAQs',
@@ -77,7 +78,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private menu: MenuController
+    private menu: MenuController,
+    private authService: AuthService
   ) {
     this.initializeApp();
   }
@@ -96,5 +98,9 @@ export class AppComponent {
     } else {
       item.subPage = !item.subPage;
     }
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

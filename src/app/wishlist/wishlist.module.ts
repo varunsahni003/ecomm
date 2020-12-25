@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { WishlistPageRoutingModule } from './wishlist-routing.module';
 
 import { WishlistPage } from './wishlist.page';
+import { shortDescriptionPipe } from '../common/utilities/shortDescription.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { WishlistPage } from './wishlist.page';
     IonicModule,
     WishlistPageRoutingModule
   ],
-  declarations: [WishlistPage]
+  declarations: [WishlistPage, shortDescriptionPipe]
 })
 export class WishlistPageModule {}

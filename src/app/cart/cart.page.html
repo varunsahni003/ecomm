@@ -21,7 +21,7 @@
             <h2>{{ loggedInUserDetails[0].defaultAddress }}</h2>
           </ion-col>
           <ion-col size="4" size-sm="4">
-            <ion-button color="light">Change</ion-button>
+            <ion-button (click)="changeAddress()" color="light">Change</ion-button>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -130,6 +130,15 @@
             </ion-text>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col size="12" size-sm="12">
+            <ion-text color="medium" class="ion-text-left">
+              <p>By clicking on 'Checkout' you agree to 
+                <span class="primaryColor" (click)="presentTermsModal()">Terms and conditions</span> and 
+                <span class="primaryColor" (click)="presentPrivacyModal()">Privacy Policy</span></p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
       </ion-card-content>
     </ion-card>
   </ion-grid>
@@ -142,7 +151,7 @@
         </ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-button size="medium" (click)="order()" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="block" class="serifFont mT10"> Order </ion-button>
+        <ion-button size="medium" (click)="checkout()" box-shadow="3px 3px 5px 6px #ccc;" color="warning" expand="block" class="serifFont mT10"> Checkout </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
