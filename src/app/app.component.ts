@@ -16,12 +16,12 @@ export class AppComponent {
   public eComm = [
     {
       title: 'Home',
-      icon: 'business',
+      icon: 'home',
       url: 'home'
     },
     {
       title: 'My Account',
-      icon: 'business',
+      icon: 'person',
       url: 'account'
       // subPage: false,
       // subPages: [
@@ -33,27 +33,27 @@ export class AppComponent {
     },
     {
       title: 'Order History',
-      icon: 'walk',
+      icon: 'bag-handle',
       url: 'order-history'
     },
     {
       title: 'My Wishlist',
-      icon: 'walk',
+      icon: 'heart',
       url: 'wishlist'
     },
     {
       title: 'My Cart',
-      icon: 'walk',
+      icon: 'cart',
       url: 'cart'
     },
     {
       title: 'Contact',
-      icon: 'walk',
+      icon: 'chatbox',
       url: 'contact'
     },
     {
       title: 'Terms and Conditions',
-      icon: 'walk',
+      icon: 'document',
       url: 'terms-and-policies'
     }
     // {

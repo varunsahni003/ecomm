@@ -151,7 +151,7 @@ export class CartPage implements OnInit {
       let obj = {
         name: 'name'+i,
         type: 'radio',
-        label: element,
+        label: `${element.firstname} ${element.lastname}, #${element.house}, ${element.address}${element?.address1}`,
         value: element,
         checked: false
       };

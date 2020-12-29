@@ -1,0 +1,291 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Add New Address </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding minHeight">
+  <ion-grid>
+    <form #f="ngForm" (ngSubmit)="addNewAddress(f)">
+      <ion-row>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">First name</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="firstname"
+                required
+                pattern="^[a-zA-Z]+$"
+                [(ngModel)]="modalData.data.firstname"
+                #firstnameCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!firstnameCtrl.valid && firstnameCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="firstnameCtrl.errors.required" class="error">
+                First name is required
+              </ion-text>
+              <ion-text *ngIf="firstnameCtrl.errors.pattern" class="error">
+                Please enter correct name
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!firstnameCtrl.valid && !firstnameCtrl.touched && submitted" lines="none">
+              <ion-text *ngIf="firstnameCtrl.errors.required" class="error">
+                First name is required
+              </ion-text>
+              <ion-text *ngIf="firstnameCtrl.errors.pattern" class="error">
+                Please enter correct name
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Last name</ion-label>
+              <ion-input
+                type="text"
+                name="lastname"
+                [(ngModel)]="modalData.data.lastname"
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">Contact no.</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="contact"
+                required
+                [(ngModel)]="modalData.data.contact"
+                #contactCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!contactCtrl.valid && contactCtrl.touched"
+              lines="none"
+            >
+              <ion-text class="error">
+                Contact number is required
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!contactCtrl.valid && !contactCtrl.touched && submitted" lines="none">
+              <ion-text class="error">
+                Contact number is required
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">House no.</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="house"
+                required
+                [(ngModel)]="modalData.data.house"
+                #houseCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!houseCtrl.valid && houseCtrl.touched"
+              lines="none"
+            >
+              <ion-text class="error">
+                House number is required
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!houseCtrl.valid && !houseCtrl.touched && submitted" lines="none">
+              <ion-text class="error">
+                House number is required
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">Address lane 1</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="address"
+                max="30"
+                required
+                [(ngModel)]="modalData.data.address"
+                #addressCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!addressCtrl.valid && addressCtrl.touched"
+              lines="none"
+            >
+              <ion-text class="error">
+                Address is required
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!addressCtrl.valid && !addressCtrl.touched && submitted" lines="none">
+              <ion-text class="error">
+                Address is required
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Address lane 2</ion-label>
+              <ion-input
+                type="text"
+                name="address1"
+                [(ngModel)]="modalData.data.address1"
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Street number</ion-label>
+              <ion-input
+                type="text"
+                name="street"
+                [(ngModel)]="modalData.data.street"
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">State</ion-label>
+              <ion-select
+                ngModel
+                required
+                name="state"
+                [(ngModel)]="modalData.data.state"
+                #stateCtrl="ngModel">
+                <ion-select-option *ngFor="let state of stateList" [value]="state"> {{ state }} </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!stateCtrl.valid && stateCtrl.touched"
+              lines="none"
+            >
+              <ion-text class="error">
+                State is required
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!stateCtrl.valid && !stateCtrl.touched && submitted" lines="none">
+              <ion-text class="error">
+                State is required
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">City</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="city"
+                max="30"
+                required
+                pattern="^[a-zA-Z]+$"
+                [(ngModel)]="modalData.data.city"
+                #cityCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!cityCtrl.valid && cityCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="cityCtrl.errors.required" class="error">
+                City is required
+              </ion-text>
+              <ion-text *ngIf="cityCtrl.errors.pattern" class="error">
+                Please enter correct city name
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!cityCtrl.valid && !cityCtrl.touched && submitted" lines="none">
+              <ion-text *ngIf="cityCtrl.errors.required" class="error">
+                City is required
+              </ion-text>
+              <ion-text *ngIf="cityCtrl.errors.pattern" class="error">
+                Please enter correct city name
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-sm="4" offset-sm="1">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">Pincode</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="pincode"
+                max="10"
+                required
+                [(ngModel)]="modalData.data.pincode"
+                #pincodeCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!pincodeCtrl.valid && pincodeCtrl.touched"
+              lines="none"
+            >
+              <ion-text class="error">
+                Pincode is required
+              </ion-text>
+            </ion-item>
+            <ion-item class="ion-no-padding ion-align-items-start" *ngIf="!stateCtrl.valid && !stateCtrl.touched && submitted" lines="none">
+              <ion-text class="error">
+                Pincode is required
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button type="submit" class="mT30 serifFont" box-shadow="3px 3px 5px 6px #ccc;" expand="full">Save address</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

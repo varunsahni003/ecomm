@@ -1,0 +1,157 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="order-history"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="start" class="ion-text-left ion-no-padding">Order Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="orderDetails && orderDetails.length > 0" class="backgroundGrey">
+    <ion-card class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="3" size-sm="3">
+          <ion-thumbnail class="fullWidth">
+            <img [src]="orderDetails[0].image" [attr.alt]="orderDetails[0].name" />
+          </ion-thumbnail>
+        </ion-col>
+
+        <ion-col size="9" size-sm="9">
+          <ion-card-header>
+            <ion-card-title class="primaryColor"> {{ orderDetails[0].name }} </ion-card-title>
+            <ion-card-subtitle *ngIf="!orderDetails[0].delivered"> Will Deliver -    {{ orderDetails[0].deliveryDate }} </ion-card-subtitle>
+            <ion-card-subtitle *ngIf="orderDetails[0].delivered"> Delivered -    {{ orderDetails[0].deliveryDate }} </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p> Order id: {{ orderDetails[0].id }} </p>
+            <p> {{ orderDetails[0].description }} </p>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="12" size-sm="12">
+          <ion-card-header>
+            <ion-card-title class="primaryColor"> Delivery Address </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+              <h2> {{ orderDetails[0].deliveryAddress.firstname }} {{ orderDetails[0].deliveryAddress?.lastname }}</h2>
+              <h2>#{{ orderDetails[0].deliveryAddress.house }}, {{ orderDetails[0].deliveryAddress.address }}, {{ orderDetails[0].deliveryAddress?.address1 }}</h2>
+              <h2 *ngIf="orderDetails[0].deliveryAddress.street">Street no. {{ orderDetails[0].deliveryAddress?.street }}</h2>
+              <h2>{{ orderDetails[0].deliveryAddress.city }}, {{ orderDetails[0].deliveryAddress.state }}</h2>
+              <h2>{{ orderDetails[0].deliveryAddress.pincode }}</h2>
+              <h2>{{ orderDetails[0].deliveryAddress.contact }}</h2>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="ion-no-padding ion-no-margin darkColor mT10">
+      <ion-row>
+        <ion-card-header>
+          <ion-card-title class="primaryColor"> Specifications </ion-card-title>
+        </ion-card-header>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-sm="4">
+          <ion-text class="ion-text-left">
+            <p class="specificationAlignment">Name</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6" size-sm="6" offset-sm="1">
+          <ion-text> <p class="specificationAlignment">{{ orderDetails[0].name }}</p> </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-sm="4">
+          <ion-text class="ion-text-left">
+            <p class="specificationAlignment">Brand</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6" size-sm="6" offset-sm="1">
+          <ion-text> <p class="specificationAlignment">{{ orderDetails[0].brand }}</p> </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-sm="4">
+          <ion-text class="ion-text-left">
+            <p class="specificationAlignment">Color</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6" size-sm="6" offset-sm="1">
+          <ion-text> <p class="specificationAlignment">{{ orderDetails[0].color }}</p> </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" size-sm="4">
+          <ion-text class="ion-text-left">
+            <p class="specificationAlignment">Size</p>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6" size-sm="6" offset-sm="1">
+          <ion-text> <p class="specificationAlignment">{{ orderDetails[0].size }}</p> </ion-text>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="mT20">
+        <ion-text>
+          <ion-card-header>
+            <ion-card-title class="primaryColor"> Return gurantee: </ion-card-title>
+          </ion-card-header>
+          <ion-item>{{ orderDetails[0].return }}</ion-item>
+        </ion-text>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="12" size-sm="12">
+          <ion-card-header>
+            <ion-card-title class="primaryColor"> Charges </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="5">
+                <p class="specificationAlignment"> Cost </p>
+              </ion-col>
+              <ion-col size="1">:</ion-col>
+              <ion-col size="5">
+                <p class="specificationAlignment"> ₹ {{ orderDetails[0].cost }}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="5">
+                <p class="specificationAlignment"> Discount </p>
+              </ion-col>
+              <ion-col size="1">:</ion-col>
+              <ion-col size="5">
+                <p class="specificationAlignment"> {{ orderDetails[0].discount }}%</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="5">
+                <p class="specificationAlignment"> Quantity </p>
+              </ion-col>
+              <ion-col size="1">:</ion-col>
+              <ion-col size="5">
+                <p class="specificationAlignment"> {{ orderDetails[0].quantity }}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="5">
+                <p class="specificationAlignment"> Total Amount </p>
+              </ion-col>
+              <ion-col size="1">:</ion-col>
+              <ion-col size="5">
+                <p class="specificationAlignment"> ₹ {{ orderDetails[0].finalAmount }}</p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>

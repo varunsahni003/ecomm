@@ -19,7 +19,11 @@
 
         <ion-col size="9" size-sm="9">
           <ion-card-header>
-            <ion-card-title class="primaryColor"> {{ product.name }} </ion-card-title>
+            <ion-card-title class="primaryColor"> {{ product.name }}
+              <span (click)="toggleWishlist(product)">
+                <ion-icon class="colorRed ion-float-right" slot="start" name="heart"></ion-icon>
+              </span>
+            </ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-row>

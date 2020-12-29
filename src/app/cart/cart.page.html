@@ -17,10 +17,16 @@
           <ion-col size="3" size-sm="3">
             <h2>Deliver to</h2>
           </ion-col>
-          <ion-col class="ion-no-margin" size="5" size-sm="5">
-            <h2>{{ loggedInUserDetails[0].defaultAddress }}</h2>
+          <ion-col class="ion-no-margin" size="6" size-sm="6">
+            <h2> {{ loggedInUserDetails[0].defaultAddress.firstname }} {{ loggedInUserDetails[0].defaultAddress?.lastname }}</h2>
+            <h2>#{{ loggedInUserDetails[0].defaultAddress.house }}, {{ loggedInUserDetails[0].defaultAddress.address }}, {{ loggedInUserDetails[0].defaultAddress?.address1 }}
+              <span *ngIf="loggedInUserDetails[0].defaultAddress.street">, Street no. {{ loggedInUserDetails[0].defaultAddress?.street }}</span>
+            </h2>
+            <h2>{{ loggedInUserDetails[0].defaultAddress.city }}, {{ loggedInUserDetails[0].defaultAddress.state }}</h2>
+            <h2>{{ loggedInUserDetails[0].defaultAddress.pincode }}</h2>
+            <h2>{{ loggedInUserDetails[0].defaultAddress.contact }}</h2>
           </ion-col>
-          <ion-col size="4" size-sm="4">
+          <ion-col size="3" size-sm="3">
             <ion-button (click)="changeAddress()" color="light">Change</ion-button>
           </ion-col>
         </ion-row>

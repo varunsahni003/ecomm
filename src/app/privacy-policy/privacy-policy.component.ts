@@ -10,11 +10,10 @@ export class PrivacyPolicyComponent implements OnInit {
 
   @Input() modalData: any;
   @Input() renderPage: boolean = false;
+
   constructor(private modalCtrl: ModalController) { }
 
-  ngOnInit() {
-    console.log(this.modalData);
-  }
+  ngOnInit() {}
 
   onCancel() {
     this.modalCtrl.dismiss(null, 'cancel');

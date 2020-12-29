@@ -55,3 +55,12 @@
     color: var(--ion-color-medium);
     font-size: 13px;
 }
+
+ion-text.error {
+    color: var(--ion-color-danger) !important;
+    font-size: 14px;
+}
+.requiredField::after {
+    content: ' *';
+    color: var(--ion-color-danger);
+}
