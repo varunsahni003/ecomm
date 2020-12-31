@@ -70,14 +70,15 @@
           <ion-row>
             <ion-col>
               <ion-button type="submit" [disabled]="!f.valid" expand="block" class="fontBold">
-                {{ isLogin ? 'Login' : 'Signup' }}
+                Login
               </ion-button>
             </ion-col>
           </ion-row>
           <ion-row (click)="openTermsAndConditions()">
             <ion-col>
               <ion-text class="ion-text-center" color="medium">
-                <p>Terms and Conditions</p>
+                <h6 routerLink="../register" class="primaryColor"><u>Not a user? Register here</u></h6>
+                <p routerLink="../terms-and-policies" class="mT30">Terms and Conditions</p>
               </ion-text>
             </ion-col>
           </ion-row>

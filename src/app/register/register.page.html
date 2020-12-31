@@ -1,40 +1,181 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form  #form="ngForm" (ngSubmit)="register(form)">
-    <ion-grid>
-      <ion-row class="ion-justify-content-center">
-        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
+  <ion-grid>
+    <form  #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <ion-row>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center primaryColor">
             <h3>Create your account!</h3>
           </div>
-          <div class="ion-padding">
+        </ion-col>
+        <ion-col size-md="6" size-lg="5" size-xs="6">
+          <ion-list>
             <ion-item>
-              <ion-label position="floating">Name</ion-label>
-              <ion-input  name="name" type="text" ngModel required></ion-input>
+              <ion-label class="requiredField" position="floating">First name</ion-label>
+              <ion-input
+                name="firstname"
+                type="text"
+                ngModel
+                required
+                pattern="^[a-zA-Z]+$"
+                #firstnameCtrl="ngModel">
+              </ion-input>
             </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="firstnameCtrl.invalid && (firstnameCtrl.dirty || firstnameCtrl.touched)"
+              lines="none"
+            >
+              <ion-text *ngIf="firstnameCtrl.errors.required" class="error">
+                First name is required
+              </ion-text>
+              <ion-text *ngIf="firstnameCtrl.errors?.pattern" class="error">
+                Please enter valid name
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size-md="6" size-lg="5" size-xs="6">
+          <ion-list>
             <ion-item>
-              <ion-label position="floating">Email</ion-label>
-              <ion-input name="email" type="email" ngModel required></ion-input>
+              <ion-label position="floating">Last name</ion-label>
+              <ion-input
+                name="lastname"
+                type="text"
+                ngModel
+                pattern="^[a-zA-Z]+$"
+                #lastnameCtrl="ngModel"
+                >
+              </ion-input>
             </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!lastnameCtrl.valid && lastnameCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="lastnameCtrl.errors?.pattern" class="error">
+                Please enter correct name
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-list>
             <ion-item>
-              <ion-label position="floating">Password</ion-label>
-              <ion-input name="password" type="password" ngModel required></ion-input>
+              <ion-label class="requiredField" position="floating">Email</ion-label>
+              <ion-input
+                name="email"
+                type="email"
+                ngModel
+                required
+                #emailCtrl="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+              </ion-input>
             </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!emailCtrl.valid && emailCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="emailCtrl.errors.required" class="error">
+                Email is required
+              </ion-text>
+              <ion-text *ngIf="emailCtrl.errors?.pattern" class="error">
+                Please enter correct email
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-list>
             <ion-item>
-              <ion-label position="floating">Confirm Password</ion-label>
-              <ion-input name="confirm" type="password" ngModel required></ion-input>
+              <ion-label position="floating">Mobile</ion-label>
+              <ion-input
+                name="mobile"
+                type="text"
+                ngModel
+                pattern="[6789][0-9]{9}"
+                #mobileCtrl="ngModel">
+              </ion-input>
             </ion-item>
-          </div>
-          <div class="ion-padding">
-            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
-          </div>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!mobileCtrl.valid && mobileCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="mobileCtrl.errors?.pattern" class="error">
+                Please enter correct mobile number
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">Password</ion-label>
+              <ion-input
+                name="password"
+                type="password"
+                ngModel
+                required
+                minlength="6"
+                #passwordCtrl="ngModel">
+              </ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!passwordCtrl.valid && passwordCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="passwordCtrl.errors.required" class="error">
+                Old Password is required
+              </ion-text>
+              <ion-text *ngIf="passwordCtrl.errors?.minlength" class="error">
+                Password should be of min 6 characters
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size-md="6" size-lg="5" size-xs="12">
+          <ion-list>
+            <ion-item>
+              <ion-label class="requiredField" position="floating">Confirm Password</ion-label>
+              <ion-input
+                name="confirmpassword"
+                type="password"
+                ngModel
+                required
+                appConfirmPasswordvalidator = "password"
+                #confirmpasswordCtrl="ngModel">
+              </ion-input>
+            </ion-item>
+            <ion-item
+              class="ion-no-padding ion-align-items-start"
+              *ngIf="!confirmpasswordCtrl.valid && confirmpasswordCtrl.touched"
+              lines="none"
+            >
+              <ion-text *ngIf="confirmpasswordCtrl.errors.required" class="error">
+                Confirm Password is required
+              </ion-text>
+              <ion-text class="error" *ngIf="!confirmpasswordCtrl.errors.required && confirmpasswordCtrl.hasError('passwordMatchError')">
+                Password and Confirm password must be same
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12" class="ion-padding">
+          <ion-button  size="medium" type="submit" [disabled]="registerForm.invalid" expand="block">Register</ion-button>
+          <p class="primaryColor ion-text-center" routerLink="../login"><u>Already have account? Login here</u></p>
         </ion-col>
       </ion-row>
-    </ion-grid>
-  </form>
+    </form>
+  </ion-grid>
 </ion-content>

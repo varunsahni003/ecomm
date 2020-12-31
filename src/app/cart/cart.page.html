@@ -35,7 +35,7 @@
             <!-- Product -->
     <ion-card *ngFor="let product of loggedInUserDetails[0].products" class="ion-no-padding ion-no-margin mT10">
       <ion-row class="darkColor">
-        <ion-col size="6" size-sm="6">
+        <ion-col size="7" size-sm="7">
           <ion-card-header>
             <ion-card-title class="primaryColor"> {{ product.name }} </ion-card-title>
             <ion-card-subtitle> Size: {{ product.size }} </ion-card-subtitle>
@@ -53,7 +53,7 @@
             </ion-label>
           </ion-card-content>
         </ion-col>
-        <ion-col size="6" size-sm="6">
+        <ion-col size="5" size-sm="5">
           <ion-row class="ion-float-right mT10 mR10">
             <ion-thumbnail>
               <img [src]="product.image" [attr.alt]="product.name" />

@@ -1,0 +1,335 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="profileData && profileData.length>0"
+    class="backgroundGrey ion-no-padding ion-no-margin">
+            <!-- Profile -->
+    <ion-card class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="12" size-sm="12">
+          <ion-card-header>
+            <ion-card-title class="primaryColor">
+              Basic Details
+              <span class="ion-float-right darkColor">
+                <ion-icon (click)="isDetailsEditable = true" name="pencil"></ion-icon>&nbsp;
+              </span>
+              <span class="ion-float-right">
+                <ion-icon class="lightColor editIcon" name="pencil"></ion-icon>
+              </span>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form #f="ngForm" (ngSubmit)="saveProfile(f)">
+              <ion-row>
+                <ion-col size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isDetailsEditable ? '' : 'none'">
+                      <ion-label *ngIf="isDetailsEditable" class="requiredField" position="floating">First name</ion-label>
+                      <ion-input
+                        type="text"
+                        ngModel
+                        name="firstname"
+                        required
+                        pattern="^[a-zA-Z]+$"
+                        [ngModel]="profileData[0].firstname"
+                        #firstnameCtrl="ngModel"
+                        [disabled]="!isDetailsEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="firstnameCtrl.invalid && (firstnameCtrl.dirty || firstnameCtrl.touched)"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="firstnameCtrl.errors.required" class="error">
+                        First name is required
+                      </ion-text>
+                      <ion-text *ngIf="firstnameCtrl.errors?.pattern" class="error">
+                        Please enter valid name
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isDetailsEditable ? '' : 'none'">
+                      <ion-label *ngIf="isDetailsEditable" position="floating">Last name</ion-label>
+                      <ion-input
+                        type="text"
+                        ngModel
+                        name="lastname"
+                        pattern="^[a-zA-Z]+$"
+                        [ngModel]="profileData[0].lastname"
+                        #lastnameCtrl="ngModel"
+                        [disabled]="!isDetailsEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!lastnameCtrl.valid && lastnameCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="lastnameCtrl.errors?.pattern" class="error">
+                        Please enter correct name
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="isDetailsEditable">
+                <ion-col size="4" size-sm="4">
+                  <ion-button type="submit" [disabled]="!f.valid" expand="full" box-shadow="3px 3px 5px 6px #ccc;">Save</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+                <ion-col size="4" size-sm="4">
+                  <ion-button (click)="cancelBasicDetails(f)" fill="outline">Cancel</ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+        <!-- Contact -->
+    <ion-card class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="12" size-sm="12">
+          <ion-card-header>
+            <ion-card-title class="primaryColor">
+              Contact Details
+              <span class="ion-float-right darkColor">
+                <ion-icon (click)="isContactEditable = true" name="pencil"></ion-icon>&nbsp;
+              </span>
+              <span class="ion-float-right">
+                <ion-icon class="lightColor editIcon" name="pencil"></ion-icon>
+              </span>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form #contactForm="ngForm" (ngSubmit)="saveContact(contactForm)">
+              <ion-row>
+                <ion-col size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isContactEditable ? '' : 'none'">
+                      <ion-label *ngIf="isContactEditable" class="requiredField" position="floating">Email</ion-label>
+                      <ion-input
+                        type="email"
+                        ngModel
+                        name="email"
+                        required
+                        [ngModel]="profileData[0].email"
+                        #emailCtrl="ngModel"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        [disabled]="!isContactEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!emailCtrl.valid && emailCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="emailCtrl.errors.required" class="error">
+                        Email is required
+                      </ion-text>
+                      <ion-text *ngIf="emailCtrl.errors?.pattern" class="error">
+                        Please enter correct email
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col *ngIf="isContactEditable" size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isContactEditable ? '' : 'none'">
+                      <ion-label class="requiredField" position="floating">Confirm Email</ion-label>
+                      <ion-input
+                        type="email"
+                        ngModel
+                        name="confirmemail"
+                        appConfirmPasswordvalidator = "email"
+                        required
+                        #confirmemailCtrl="ngModel"
+                        [disabled]="!isContactEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!confirmemailCtrl.valid && confirmemailCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="confirmemailCtrl.errors.required" class="error">
+                        Confirm Email is required
+                      </ion-text>
+                      <ion-text class="error" *ngIf="!confirmemailCtrl.errors.required && confirmemailCtrl.hasError('passwordMatchError')">
+                        Email and Confirm email must be same.
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isContactEditable ? '' : 'none'">
+                      <ion-label *ngIf="isContactEditable" class="requiredField" position="floating">Mobile</ion-label>
+                      <ion-input
+                        type="text"
+                        ngModel
+                        name="mobile"
+                        pattern="[6789][0-9]{9}"
+                        #mobileCtrl="ngModel"
+                        [disabled]="!isContactEditable"
+                        [ngModel]="profileData[0].mobile"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!mobileCtrl.valid && mobileCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="mobileCtrl.errors?.pattern" class="error">
+                        Please enter correct mobile number
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="isContactEditable">
+                <ion-col size="4" size-sm="4">
+                  <ion-button type="submit" [disabled]="!contactForm.valid" expand="full" box-shadow="3px 3px 5px 6px #ccc;">Save</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+                <ion-col size="4" size-sm="4">
+                  <ion-button (click)="cancelContactDetails(contactForm)" fill="outline">Cancel</ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+        <!-- Password -->
+    <ion-card class="ion-no-padding ion-no-margin mT10">
+      <ion-row class="darkColor">
+        <ion-col size="12" size-sm="12">
+          <ion-card-header>
+            <ion-card-title class="primaryColor">
+              Password
+              <span class="ion-float-right darkColor">
+                <ion-icon (click)="isPasswordEditable = true" name="pencil"></ion-icon>&nbsp;
+              </span>
+              <span class="ion-float-right">
+                <ion-icon class="lightColor editIcon" name="pencil"></ion-icon>
+              </span>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form *ngIf="isPasswordEditable" #passwordForm="ngForm" (ngSubmit)="savePassword(passwordForm)">
+              <ion-row>
+                <ion-col size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isPasswordEditable ? '' : 'none'">
+                      <ion-label *ngIf="isPasswordEditable" class="requiredField" position="floating">Old Password</ion-label>
+                      <ion-input
+                        type="password"
+                        ngModel
+                        name="oldpassword"
+                        required
+                        #oldpasswordCtrl="ngModel"
+                        [disabled]="!isPasswordEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!oldpasswordCtrl.valid && oldpasswordCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="oldpasswordCtrl.errors.required" class="error">
+                        Old Password is required
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col *ngIf="isPasswordEditable" size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isPasswordEditable ? '' : 'none'">
+                      <ion-label class="requiredField" position="floating">New Password</ion-label>
+                      <ion-input
+                        type="password"
+                        ngModel
+                        name="newpassword"
+                        required
+                        #newpasswordCtrl="ngModel"
+                        [disabled]="!isPasswordEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!newpasswordCtrl.valid && newpasswordCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="newpasswordCtrl.errors.required" class="error">
+                        New Password is required
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col size="12" size-sm="10" offset-sm="1">
+                  <ion-list>
+                    <ion-item [lines]="isPasswordEditable ? '' : 'none'">
+                      <ion-label *ngIf="isPasswordEditable" class="requiredField" position="floating">Confirm Password</ion-label>
+                      <ion-input
+                        type="password"
+                        ngModel
+                        required
+                        name="confirmpassword"
+                        appConfirmPasswordvalidator = "newpassword"
+                        #confirmpasswordCtrl="ngModel"
+                        [disabled]="!isPasswordEditable"
+                        class="disabledOpacity"
+                      ></ion-input>
+                    </ion-item>
+                    <ion-item
+                      class="ion-no-padding ion-align-items-start"
+                      *ngIf="!confirmpasswordCtrl.valid && confirmpasswordCtrl.touched"
+                      lines="none"
+                    >
+                      <ion-text *ngIf="confirmpasswordCtrl.errors.required" class="error">
+                        Confirm Password is required
+                      </ion-text>
+                      <ion-text class="error" *ngIf="!confirmpasswordCtrl.errors.required && confirmpasswordCtrl.hasError('passwordMatchError')">
+                        Password and Confirm password must be same.
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="isPasswordEditable">
+                <ion-col size="4" size-sm="4">
+                  <ion-button type="submit" [disabled]="!passwordForm.valid" expand="full" box-shadow="3px 3px 5px 6px #ccc;">Save</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+                <ion-col size="4" size-sm="4">
+                  <ion-button (click)="cancelPasswordDetails(passwordForm)" fill="outline">Cancel</ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>

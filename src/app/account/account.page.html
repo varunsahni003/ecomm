@@ -18,7 +18,9 @@
         <h4 class="mT0 lightColor"> {{ loggedInUserDetails[0].name }} </h4>
         <p class="lightColor mB0"> {{ loggedInUserDetails[0].mobile }} </p>
         <p class="mT5 lightColor"> {{ loggedInUserDetails[0].email }}
-          <span class="ion-float-right"><ion-icon class="lightColor editIcon" name="pencil"></ion-icon></span>
+          <span routerLink="profile" class="ion-float-right">
+            <ion-icon class="lightColor editIcon" name="pencil"></ion-icon>
+          </span>
         </p>
       </ion-col>
     </ion-row>
