@@ -8,13 +8,21 @@
       <ion-button class="pR0" [routerLink]="['/cart']">
         <ion-icon name="cart" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
       </ion-button>
-      <ion-button (click)="side_open()">
+      <ion-button (click)="isSearch = true">
         <ion-icon name="search" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
       </ion-button>
       <ion-button slot="end" fill="clear" class="white top-btn" (click)="helperService.navigateTo('login')">
         Login
       </ion-button>
     </ion-buttons>
+  <ion-searchbar
+    (ionCancel)="cancelSearch()"
+    (ionBlur)="cancelSearch()"
+    showCancelButton="always"
+    animated
+    *ngIf="isSearch"
+    class="isSearch">
+  </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

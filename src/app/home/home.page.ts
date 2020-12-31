@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
     effect: 'flip',
     zoom: false
   };
+  isSearch: boolean = false;
 
   constructor(private helperService: HelperService, private _http: HttpCallsService) { }
 
@@ -27,16 +28,17 @@ export class HomePage implements OnInit {
     });
   }
 
-  side_open() {
-
-  }
-
   ionSlidechange() {
 
   }
 
   preventDefault(event) {
     event.preventDefault();
+  }
+
+  cancelSearch() {
+    console.log('Inside');
+    this.isSearch = false;
   }
 
 }
