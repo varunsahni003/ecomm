@@ -1,0 +1,60 @@
+[
+    {
+        "addressList": [
+            {
+                "firstname": "Varun",
+                "lastname": "Sahni",
+                "contact": "+91-9464297972",
+                "house": "1549",
+                "address": "Rativ Chownk",
+                "address1": "kalan queen",
+                "street": "6",
+                "state": "Punjab",
+                "city": "Amritsar",
+                "pincode": "143001",
+                "isEditable": false
+            },
+            {
+                "firstname": "Rahul",
+                "lastname": "Seth",
+                "contact": "+91-878997972",
+                "house": "1550",
+                "address": "Knu Chownk",
+                "address1": "kalan queen",
+                "street": "5",
+                "state": "Punjab",
+                "city": "Amritsar",
+                "pincode": "143001",
+                "isEditable": false
+            },
+            {
+                "firstname": "Rishan",
+                "lastname": "Seth",
+                "contact": "+91-7864297972",
+                "house": "781",
+                "address": "Goli Chownk",
+                "address1": "Ganji nagar",
+                "street": "7",
+                "state": "Punjab",
+                "city": "Amritsar",
+                "pincode": "143001",
+                "isEditable": false
+            }
+        ]
+    },
+    {
+        "defaultAddress": {
+            "firstname": "Varun",
+            "lastname": "Sahni",
+            "contact": "+91-9464297972",
+            "house": "1549",
+            "address": "Rativ Chownk",
+            "address1": "kalan queen",
+            "street": "6",
+            "state": "Punjab",
+            "city": "Amritsar",
+            "pincode": "143001",
+            "isEditable": false
+        }
+    }
+]

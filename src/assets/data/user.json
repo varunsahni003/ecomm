@@ -1,0 +1,149 @@
+[
+    {
+        "firstname": "Cavin",
+        "lastname": "Selena",
+        "addressList": [
+            {
+                "firstname": "Varun",
+                "lastname": "Sahni",
+                "contact": "+91-9464297972",
+                "house": "1549",
+                "address": "Rativ Chownk",
+                "address1": "kalan queen",
+                "street": "6",
+                "state": "Punjab",
+                "city": "Amritsar",
+                "pincode": "143001",
+                "isEditable": false
+            },
+            {
+                "firstname": "Rahul",
+                "lastname": "Seth",
+                "contact": "+91-878997972",
+                "house": "1550",
+                "address": "Knu Chownk",
+                "address1": "kalan queen",
+                "street": "5",
+                "state": "Punjab",
+                "city": "Amritsar",
+                "pincode": "143001",
+                "isEditable": false
+            },
+            {
+                "firstname": "Rishan",
+                "lastname": "Seth",
+                "contact": "+91-7864297972",
+                "house": "781",
+                "address": "Goli Chownk",
+                "address1": "Ganji nagar",
+                "street": "7",
+                "state": "Punjab",
+                "city": "Amritsar",
+                "pincode": "143001",
+                "isEditable": false
+            }
+        ],
+        "defaultAddress": {
+            "firstname": "Varun",
+            "lastname": "Sahni",
+            "contact": "+91-9464297972",
+            "house": "1549",
+            "address": "Rativ Chownk",
+            "address1": "kalan queen",
+            "street": "6",
+            "state": "Punjab",
+            "city": "Amritsar",
+            "pincode": "143001",
+            "isEditable": false
+        },
+        "mobile": "9464297972",
+        "email": "varunsahni003@gmail.com",
+        "products": [
+            {
+                "id": "1",
+                "name": "Calvin clan trouser",
+                "size": "S",
+                "cost": 100,
+                "quantity": 1,
+                "deliveryCharge": 0,
+                "offerApplied": "FirstPromo",
+                "rating": 4,
+                "rating_count": 11,
+                "discount": 10,
+                "image": "assets/images/products/1_1.jpg"
+            },
+            {
+                "id": 2,
+                "name": "Calvin clan Tshirt",
+                "size": "M",
+                "cost": 1015,
+                "quantity": 4,
+                "deliveryCharge": 40,
+                "offerApplied": "FirstPromo",
+                "rating": 4,
+                "rating_count": 11,
+                "discount": 10,
+                "image": "assets/images/products/1_2.jpg"
+            }
+        ],
+        "orders": [
+            {
+                "id": "1",
+                "name": "Calvin clan trouser",
+                "size": "S",
+                "cost": 100,
+                "quantity": 1,
+                "deliveryCharge": 0,
+                "offerApplied": "FirstPromo",
+                "rating": 4,
+                "rating_count": 11,
+                "discount": 10,
+                "image": "assets/images/products/1_1.jpg",
+                "deliveryDate": "11/04/2020",
+                "delivered": true
+            },
+            {
+                "id": 2,
+                "name": "Calvin clan Tshirt",
+                "size": "M",
+                "cost": 1015,
+                "quantity": 4,
+                "deliveryCharge": 40,
+                "offerApplied": "FirstPromo",
+                "rating": 4,
+                "rating_count": 11,
+                "discount": 10,
+                "image": "assets/images/products/1_2.jpg",
+                "deliveryDate": "15/06/2021",
+                "delivered": false
+            }
+        ],
+        "wishlist": [
+            {
+                "id": 1,
+                "name": "Calvin clan trouser",
+                "size": "S",
+                "cost": 100,
+                "deliveryCharge": 0,
+                "rating": 4,
+                "rating_count": 11,
+                "discount": 10,
+                "image": "assets/images/products/1_1.jpg",
+                "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            },
+            {
+                "id": 2,
+                "name": "Calvin clan Tshirt",
+                "size": "M",
+                "cost": 1015,
+                "deliveryCharge": 40,
+                "offerApplied": "FirstPromo",
+                "rating": 4,
+                "rating_count": 11,
+                "discount": 10,
+                "image": "assets/images/products/1_2.jpg",
+                "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            }
+        ]
+    }
+]

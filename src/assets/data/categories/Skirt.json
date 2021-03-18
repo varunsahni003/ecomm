@@ -1,0 +1,396 @@
+[
+    { 
+        "name": "Morrisson Skirt",
+        "cost": 128,
+        "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/6.jpg",
+            "assets/images/products/6_1.jpg",
+            "assets/images/products/6_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 567,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/6.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/6.jpg"] }],
+                    "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Nicola Skirt",
+        "cost": 278,
+        "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/9.jpg",
+            "assets/images/products/9_1.jpg",
+            "assets/images/products/9_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 982,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/9.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/9.jpg"]
+                }
+            ],
+        "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    {
+        "name": "Kinsley Skirt",
+        "cost": 198,
+        "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/1.jpg",
+            "assets/images/products/1_1.jpg",
+            "assets/images/products/1_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 434,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/11.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/11.jpg"]
+                }
+            ],
+        "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Morrisson Skirt",
+        "cost": 128,
+        "discount": 80,
+        "offer": true,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/7.jpg",
+            "assets/images/products/7_1.jpg",
+            "assets/images/products/7_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 137,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/7.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/7.jpg"] }],
+                    "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Smith Skirt",
+        "cost": 98,
+        "discount": 80,
+        "offer": true,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/3.jpg",
+            "assets/images/products/3_1.jpg",
+            "assets/images/products/3_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 214,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/10.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/10.jpg"]
+                }
+            ],
+        "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    {
+        "name": "Bianca Skirt",
+        "cost": 128,
+        "discount": 80,
+        "offer": true,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/2.jpg",
+            "assets/images/products/2_1.jpg",
+            "assets/images/products/2_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 1200,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "reviews": [
+            {
+                "name": "Rahul",
+                "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                "rating": 5
+            },
+            {
+                "name": "sample",
+                "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                "rating": 5
+            }
+        ],
+        "return": "100% return within a week if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Scarlett Skirt",
+        "cost": 218,
+        "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/4.jpg",
+            "assets/images/products/4_1.jpg",
+            "assets/images/products/4_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 234,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/5.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/5.jpg"] }],
+                    "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Misty Skirt",
+        "cost": 218,
+        "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/10.jpg",
+            "assets/images/products/10_1.jpg",
+            "assets/images/products/10_2.jpg"
+        ],
+        "rating_count": 11, "sold": 365, "size": "M", "color": "Black", "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/3.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/3.jpg"] }],
+                    "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Blanch Skirt",
+        "cost": 248,
+        "discount": 20,
+        "offer": true,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/5.jpg",
+            "assets/images/products/5_1.jpg",
+            "assets/images/products/5_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 1200,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/4.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/4.jpg"] }],
+                    "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Scarpetta Skirt",
+        "cost": 198, "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/11.jpg",
+            "assets/images/products/11_1.jpg",
+            "assets/images/products/11_2.jpg",
+            "assets/images/products/11_3.jpg",
+            "assets/images/products/11_4.jpg",
+            "assets/images/products/11_5.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 400,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/2.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/2.jpg"]
+                }
+            ],
+        "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    },
+    { 
+        "name": "Smith Skirt",
+        "cost": 98,
+        "discount": 80,
+        "offer": false,
+        "stock": 69,
+        "description": "Description is industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "images": [
+            "assets/images/products/8.jpg",
+            "assets/images/products/8_1.jpg",
+            "assets/images/products/8_2.jpg"
+        ],
+        "rating_count": 11,
+        "sold": 236,
+        "size": "M",
+        "color": "Black",
+        "rating": 4,
+        "specs": "this is a sample product",
+        "reviews": 
+            [
+                { 
+                    "image": "assets/images/products/8.jpg",
+                    "name": "sample",
+                    "comment": "This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol",
+                    "rating": 5,
+                    "images": ["assets/images/products/8.jpg"] }],
+                    "return": "100% return if products are not satisfactory",
+        "promoCodes": [
+            { "name": "FIRSTPROMO", "extraOff": "100", "description": "Get first time off of ₹100 on application of this code. Applicable once per user" }
+        ],
+        "brand": "Adidas",
+        "deliveryCharge": "0",
+        "availableSize": ["S", "M", "L"],
+        "sponsored": []
+    } 
+]

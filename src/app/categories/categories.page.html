@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'home'"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="category" slot="start" class="ion-text-left ion-no-padding"> {{ category }} </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="pR0" [routerLink]="['/cart']">
+        <ion-icon name="cart" slot="icon-only" class="white top-btn ion-no-margin"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-products [products]="products"></app-products>
+</ion-content>

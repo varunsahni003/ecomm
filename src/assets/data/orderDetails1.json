@@ -1,0 +1,35 @@
+[
+    {
+        "id": "1",
+        "name": "Calvin clan trouser",
+        "size": "S",
+        "cost": 100,
+        "quantity": 1,
+        "deliveryCharge": 0,
+        "offerApplied": "FirstPromo",
+        "rating": 4,
+        "rating_count": 11,
+        "discount": 10,
+        "brand": "Adidas",
+        "color": "red",
+        "return": "100% return within a week if product is not satisfactory",
+        "image": "assets/images/products/1_1.jpg",
+        "deliveryDate": "11/04/2020",
+        "delivered": true,
+        "deliveryAddress": {
+            "firstname": "Varun",
+            "lastname": "Sahni",
+            "contact": "+91-9464297972",
+            "house": "1549",
+            "address": "Rativ Chownk",
+            "address1": "kalan queen",
+            "street": "6",
+            "state": "Punjab",
+            "city": "Amritsar",
+            "pincode": "143001",
+            "isEditable": false
+        },
+        "orderDate": "10/04/2021",
+        "finalAmount": 90
+    }
+]

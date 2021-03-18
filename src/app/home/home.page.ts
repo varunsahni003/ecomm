@@ -13,10 +13,25 @@ export class HomePage implements OnInit {
   apiUrl: string = environment.apiUrl;
   popular: any;
   slideOptions = {
-    effect: 'flip',
-    zoom: false
+    slidesPerView: 6,
+    spaceBetween: 10,
+    // effect: 'flip',
+    // zoom: false
+    // speed: 400,
+    initialSlide: 0,
+    loop: false
   };
   isSearch: boolean = false;
+  categories: Array<any> = [
+    "T-shirt",
+    "Shirts",
+    "Top",
+    "Skirt",
+    "Jeans",
+    "Kurta",
+    "Saree",
+    "Dress"
+  ];
 
   constructor(private helperService: HelperService, private _http: HttpCallsService) { }
 
@@ -24,7 +39,6 @@ export class HomePage implements OnInit {
     // this.http,push(dataToSend, {responseType: 'text'}).subscribe()
     this._http.fetch(`${this.apiUrl}/popular.json`).subscribe(res => {
       this.popular = res;
-      console.log('products: ', this.popular);
     });
   }
 
@@ -37,7 +51,6 @@ export class HomePage implements OnInit {
   }
 
   cancelSearch() {
-    console.log('Inside');
     this.isSearch = false;
   }
 

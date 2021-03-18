@@ -28,8 +28,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-slides #Slides pager="false" (click)="preventDefault($event)" [options]="slideOptions" (ionSlideDidChange)="ionSlidechange()">
-    <ion-slide>
-      <app-products [products]="popular"></app-products>
+    <ion-slide [routerLink]="['category', 'All']">
+      <p> All </p>
     </ion-slide>
-    </ion-slides>
+    <ion-slide [routerLink]="['category', category]" *ngFor="let category of categories">
+      <p> {{ category }} </p>
+    </ion-slide>
+  </ion-slides>
+  <app-products [products]="popular"></app-products>
 </ion-content>
