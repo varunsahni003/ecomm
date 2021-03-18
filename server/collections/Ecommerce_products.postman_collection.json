@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "6a2fcfe9-a21c-4930-a65b-f7f6793f9c8b",
+		"name": "Ecommerce_products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nike T-shirt\",\n    \"images\": [\n        \"assets/images/products/1.jpg\",\n        \"assets/images/products/1_1.jpg\",\n        \"assets/images/products/1_2.jpg\"\n    ],\n    \"color\": \"Red\",\n    \"cost\": 2500,\n    \"discount\": 10,\n    \"stock\": 100,\n    \"description\": \"Adidas men full sleeve t-shirt at an affordable price\",\n    \"rating\": 4,\n    \"rating_count\": 500,\n    \"reviews\": [\n        {\n                \"name\": \"Rahul\",\n                \"comment\": \"This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol\",\n                \"rating\": 5\n            },\n            {\n                \"name\": \"sample\",\n                \"comment\": \"This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol\",\n                \"rating\": 5\n            }\n    ],\n    \"return\": \"100% return if products are not satisfactory\",\n        \"promoCodes\": [\n            { \"name\": \"FIRSTPROMO\", \"extraOff\": \"100\", \"description\": \"Get first time off of ₹100 on application of this code. Applicable once per user\" }\n        ],\n        \"brand\": \"Adidas\",\n        \"deliveryCharge\": \"0\",\n        \"availableSize\": [\"S\", \"M\", \"L\"],\n        \"sponsored\": [],\n        \"specifications\": {\n\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/product/createProduct",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"product",
+						"createProduct"
+					]
+				},
+				"description": "Create a product"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nike T-shirt\",\n    \"images\": [\n        \"assets/images/products/1.jpg\",\n        \"assets/images/products/1_1.jpg\",\n        \"assets/images/products/1_2.jpg\"\n    ],\n    \"color\": \"Red\",\n    \"cost\": 2500,\n    \"discount\": 10,\n    \"stock\": 100,\n    \"description\": \"Adidas men full sleeve t-shirt at an affordable price\",\n    \"rating\": 4,\n    \"rating_count\": 500,\n    \"reviews\": [\n        {\n                \"name\": \"Rahul\",\n                \"comment\": \"This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol\",\n                \"rating\": 5\n            },\n            {\n                \"name\": \"sample\",\n                \"comment\": \"This is an amazing dress and totally out of budget. Need to sell my only kidney to purchase this one as other kidney is already sold for my iphone...lol\",\n                \"rating\": 5\n            }\n    ],\n    \"return\": \"100% return if products are not satisfactory\",\n        \"promoCodes\": [\n            { \"name\": \"FIRSTPROMO\", \"extraOff\": \"100\", \"description\": \"Get first time off of ₹100 on application of this code. Applicable once per user\" }\n        ],\n        \"brand\": \"Adidas\",\n        \"deliveryCharge\": \"0\",\n        \"availableSize\": [\"S\", \"M\", \"L\"],\n        \"sponsored\": [],\n        \"specifications\": {\n\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/product/updateProduct/5fd5dac957a13f3b2647d93c",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"product",
+						"updateProduct",
+						"5fd5dac957a13f3b2647d93c"
+					]
+				},
+				"description": "Update a product"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/product/products/5fd5dac957a13f3b2647d93c",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"product",
+						"products",
+						"5fd5dac957a13f3b2647d93c"
+					]
+				},
+				"description": "Get a product"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/product/deleteProduct/5fd5dac957a13f3b2647d93c",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"product",
+						"deleteProduct",
+						"5fd5dac957a13f3b2647d93c"
+					]
+				},
+				"description": "Delete a product"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
